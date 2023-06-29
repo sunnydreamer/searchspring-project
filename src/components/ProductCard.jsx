@@ -1,13 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { addToCart } from "../state/cartSlice";
+import noImage from "../images/noImage.png";
 
 const ProductCard = ({ element }) => {
+  const dispatch = useDispatch();
+  const cartCount = useSelector((state) => state.cart.quantity);
+
+  // console.log(cartCount);
+  const [imageError, setImageError] = useState(false);
+
+  const handleImageError = () => {
+    setImageError(true);
+  };
+
   return (
     <div className="productCard h-120 w-64 bg-white pb-4 rounded-lg shadow-md m-9 ">
       <div className="imgContainer h-96 overflow-hidden ">
         <img
-          src={element.thumbnailImageUrl}
+          src={imageError ? noImage : element.thumbnailImageUrl}
           alt=""
           className="w-80 rounded-lg"
+          onError={handleImageError}
         />
       </div>
       <div className="productInfoContianer p-5 flex flex-col gap-2 ">
@@ -20,7 +34,12 @@ const ProductCard = ({ element }) => {
             <p className="font-bold text-lg text-red-500">${element.price}</p>
           </div>
 
-          <div className="addToCart w-7 h-7 bg-red-500 hover:bg-red-600 hover:cursor-pointer flex justify-center items-center rounded-full text-white font-bold">
+          <div
+            className="addToCart w-7 h-7 bg-red-500 hover:bg-red-600 hover:cursor-pointer flex justify-center items-center rounded-full text-white font-bold"
+            onClick={() => {
+              dispatch(addToCart());
+            }}
+          >
             +
           </div>
         </div>

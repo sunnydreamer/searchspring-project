@@ -22,7 +22,7 @@ const SearchBar = () => {
     if (input === "") {
       console.log("type something");
     } else {
-      const results = await dispatch(fetchData(input));
+      const results = await dispatch(fetchData({ searchTerm: input, page: 1 }));
       // console.log(results.payload.results);
       dispatch(setSearchData(results.payload.results));
       // console.log(searchData);

@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    quantity: 0
+    quantity: parseInt(localStorage.getItem("cartCount")) || 0
 };
 
 export const cartSlice = createSlice({
@@ -9,10 +9,13 @@ export const cartSlice = createSlice({
     initialState,
     reducers: {
         addToCart: (state, action) => {
-            state.quantity += 1
+            state.quantity += 1;
+            localStorage.setItem("cartCount", state.quantity)
+
         },
-        removeFromCart: (state, action) => {
-            state.quantity -= 1
+        clearCart: (state, action) => {
+            localStorage.clear()
+            state.quantity = 0;
         }
     }
 
@@ -21,7 +24,7 @@ export const cartSlice = createSlice({
 
 export const {
     addToCart,
-    removeFromCart
+    clearCart
 } = cartSlice.actions;
 
 export default cartSlice.reducer

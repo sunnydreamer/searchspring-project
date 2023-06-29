@@ -1,13 +1,23 @@
 import React from "react";
 import logo from "../images/logoT.png";
 import SearchBar from "./SearchBar";
-import { useSelector } from "react-redux";
+import { clearCart } from "../state/cartSlice";
+
+import { useDispatch, useSelector } from "react-redux";
 
 const NavBar = () => {
   const cartQuantity = useSelector((state) => state.cart.quantity);
+  const dispatch = useDispatch();
+
+  const handleClearCart = () => {
+    const confirmed = window.confirm("Do you want to clear the shopping cart?");
+    if (confirmed) {
+      dispatch(clearCart());
+    }
+  };
 
   return (
-    <nav className="flex flex-col items-center justify-center w-full sticky top-0">
+    <nav className="flex flex-col items-center justify-center w-full sticky top-0 z-10">
       {/* logo */}
       <div className="flex items-center justify-center flex-shrink-0  bg-gray-100 p-2 w-full">
         <a href="/">
@@ -39,7 +49,10 @@ const NavBar = () => {
           {/* Searchbar */}
           <SearchBar />
           {/* Shopping Cart */}
-          <div className="relative cursor-pointer mr-10">
+          <div
+            className="relative cursor-pointer mr-10 "
+            onClick={handleClearCart}
+          >
             <div className="t-0 absolute left-3">
               <p className="flex h-2 w-2 items-center justify-center rounded-full bg-red-500  p-3 text-xs text-white">
                 {cartQuantity}
