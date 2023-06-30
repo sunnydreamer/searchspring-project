@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 import { fetchData } from "../state/searchActions";
@@ -9,7 +9,6 @@ const SearchBar = () => {
   const [input, setInput] = useState("");
 
   const dispatch = useDispatch();
-  const searchData = useSelector((state) => state.search.searchData);
   const navigate = useNavigate();
 
   const handleInputChange = (e) => {

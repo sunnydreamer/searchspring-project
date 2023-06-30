@@ -11,7 +11,6 @@ import NoResultAlert from "../components/NoResultAlert";
 
 const CategoryPage = () => {
   const [page, setPage] = useState(1);
-  const [isEmpty, setIsEmpty] = useState(false);
 
   const { category } = useParams();
   const dispatch = useDispatch();
