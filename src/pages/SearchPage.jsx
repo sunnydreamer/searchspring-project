@@ -45,10 +45,12 @@ const SearchPage = () => {
       </h1>
 
       <PagePagination page={page} setPage={setPage} searchData={searchData} />
+
       {/* products */}
       <div className="flex gap-4 flex-wrap justify-center px-12">
         {dataList}
       </div>
+
       <PagePagination page={page} setPage={setPage} searchData={searchData} />
     </div>
   );

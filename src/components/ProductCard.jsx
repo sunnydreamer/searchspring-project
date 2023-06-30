@@ -1,16 +1,24 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 
 import { addToCart } from "../state/cartSlice";
 import noImage from "../images/noImage.png";
 
-const ProductCard = ({ element }) => {
+const ProductCard = ({ element, category, page }) => {
   const dispatch = useDispatch();
   const [imageError, setImageError] = useState(false);
 
   const handleImageError = () => {
     setImageError(true);
   };
+
+  useEffect(() => {
+    setImageError(false);
+  }, [category]);
+
+  useEffect(() => {
+    setImageError(false);
+  }, [page]);
 
   return (
     <div className="productCard h-120 w-64 bg-white pb-4 rounded-lg shadow-md m-9 ">

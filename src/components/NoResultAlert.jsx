@@ -3,7 +3,7 @@ import noResultImg from "../images/noResult.gif";
 
 const NoResultAlert = () => {
   return (
-    <div>
+    <div className="noResult py-16">
       <img src={noResultImg} alt="" />
     </div>
   );

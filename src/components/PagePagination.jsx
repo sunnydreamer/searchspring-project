@@ -13,12 +13,14 @@ const PagePagination = ({ page, setPage, searchData }) => {
 
   return (
     <div aria-label="Page navigation example" className="cursor-pointer">
-      <ul className="list-style-none flex justify-center justify-items-center text-center border-2">
+      <ul className="list-style-none flex justify-center justify-items-center text-center border-2 rounded-lg">
         {page === 1 ? (
-          <React.Fragment />
+          <li className="relative block rounded-l-md px-3 py-1.5 text-sm text-neutral-600 transition-all bg-neutral-100 duration-300  	w-24">
+            Previous
+          </li>
         ) : (
           <li
-            className="relative block rounded  px-3 py-1.5 text-sm text-neutral-600 transition-all duration-300 hover:bg-neutral-100 dark:text-white dark:hover:bg-neutral-700 dark:hover:text-white 	w-24"
+            className="relative block rounded-l-md px-3 py-1.5 text-sm text-neutral-600 transition-all duration-300 hover:bg-neutral-100 	w-24"
             onClick={() => {
               handlePrevious();
             }}
@@ -26,9 +28,10 @@ const PagePagination = ({ page, setPage, searchData }) => {
             Previous
           </li>
         )}
+
         {searchData && searchData.length !== 0 ? (
           <li
-            className="relative block rounded  px-3 py-1.5 text-sm text-neutral-600 transition-all duration-300 hover:bg-neutral-100 dark:text-white dark:hover:bg-neutral-700 dark:hover:text-white 	w-24	"
+            className="relative block rounded-r-md px-3 py-1.5 text-sm text-neutral-600 transition-all duration-300 hover:bg-neutral-100  	w-24	"
             onClick={() => {
               handleNext();
             }}
@@ -36,7 +39,9 @@ const PagePagination = ({ page, setPage, searchData }) => {
             Next
           </li>
         ) : (
-          <React.Fragment />
+          <li className="relative block rounded-r-md  px-3 py-1.5 text-sm text-neutral-600 transition-all duration-300 bg-neutral-100  	w-24	">
+            Next
+          </li>
         )}
       </ul>
     </div>

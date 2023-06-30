@@ -20,27 +20,42 @@ const CategoryPage = () => {
     const results = await dispatch(fetchData({ searchTerm, page }));
     // console.log(results.payload.results);
     dispatch(setSearchData(results.payload.results));
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
   };
 
   const dataList =
     searchData && searchData.length ? (
       searchData.map((element, i) => {
-        return <ProductCard key={i} element={element} />;
+        return (
+          <ProductCard
+            key={i}
+            element={element}
+            category={category}
+            page={page}
+          />
+        );
       })
     ) : (
       <NoResultAlert />
     );
 
   useEffect(() => {
+    setPage(1);
+    handleSearch(category, page);
+    // console.log(searchData);
+  }, [category]);
+
+  useEffect(() => {
     handleSearch(category, page);
     // console.log(searchData);
   }, [page]);
 
-  // loop the results
-
   return (
-    <div className="flex flex-col justify-center items-center w-full pb-4 mb-5 ">
-      <h1 className="text-3xl font-extrabold  text-black mb-5 p-9">
+    <div className="flex flex-col justify-center items-center w-full pb-4 mb-5">
+      <h1 className="text-3xl font-extrabold  text-black mb-5 p-9 ">
         {category.toUpperCase()}
       </h1>
       <PagePagination page={page} setPage={setPage} searchData={searchData} />

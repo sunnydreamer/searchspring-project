@@ -1,6 +1,11 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const Banner = () => {
+  const navigate = useNavigate();
+  const handleRedirect = (category) => {
+    navigate(`/${category}`);
+  };
   return (
     <section className="bg-banner bg-cover ">
       <div className="mx-auto max-w-screen-xl px-4 py-64 lg:flex lg:h-screen lg:items-center">
@@ -10,12 +15,14 @@ const Banner = () => {
           </h1>
 
           <div className="mt-8 flex flex-wrap justify-center gap-4">
-            <a
-              className="block mx-auto w-1/2 rounded bg-red-500 px-12 py-3 text-sm text-white shadow hover:bg-red-700 focus:outline-none focus:ring active:bg-red-500 sm:w-auto font-bold"
-              href="/trending"
+            <div
+              className="block mx-auto w-1/2 rounded bg-red-500 px-12 py-3 text-sm text-white shadow hover:bg-red-700 focus:outline-none focus:ring active:bg-red-500 sm:w-auto font-bold cursor-pointer"
+              onClick={() => {
+                handleRedirect("trending");
+              }}
             >
               Shop Now
-            </a>
+            </div>
           </div>
         </div>
       </div>

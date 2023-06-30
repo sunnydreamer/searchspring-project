@@ -15,6 +15,10 @@ const SearchBar = () => {
     setInput(e.target.value);
   };
 
+  const handleClearInput = () => {
+    setInput("");
+  };
+
   const handleSearch = async (e) => {
     e.preventDefault();
 
@@ -37,7 +41,18 @@ const SearchBar = () => {
           type="text"
           placeholder="Jeans"
           onChange={handleInputChange}
+          value={input}
         />
+
+        <div
+          className="cursor-pointer px-4"
+          onClick={() => {
+            handleClearInput();
+          }}
+        >
+          {input ? "x" : ""}
+        </div>
+
         <button
           className="flex-shrink-0 bg-black hover:bg-gray-600 text-sm  text-white p-2 px-3 rounded"
           type="submit"

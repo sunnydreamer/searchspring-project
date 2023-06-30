@@ -1,11 +1,13 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import logo from "../images/logoT.png";
 import SearchBar from "./SearchBar";
 import { clearCart } from "../state/cartSlice";
 
 const NavBar = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const cartQuantity = useSelector((state) => state.cart.quantity);
 
@@ -16,33 +18,62 @@ const NavBar = () => {
     }
   };
 
+  const handleRedirect = (category) => {
+    navigate(`/${category}`);
+  };
+
   return (
     <nav className="flex flex-col items-center justify-center w-full sticky top-0 z-10">
       {/* Logo */}
       <div className="flex items-center justify-center flex-shrink-0  bg-gray-100 p-2 w-full">
-        <a href="/">
+        <div
+          className="cursor-pointer"
+          onClick={() => {
+            handleRedirect("");
+          }}
+        >
           <img src={logo} alt="" className="w-56" />
-        </a>
+        </div>
       </div>
       {/* Nav Items */}
       <div className="flex items-center justify-center bg-white w-full gap-1 flex-wrap p-5 px-0 ">
         <div className="firstLine">
           <ul className="navItems  items-center justify-between  gap-1 flex">
-            <a href="/trending">
+            <div
+              onClick={() => {
+                handleRedirect("trending");
+              }}
+            >
               <li className="text-red-500">Trending</li>
-            </a>
-            <a href="/tops">
+            </div>
+            <div
+              onClick={() => {
+                handleRedirect("tops");
+              }}
+            >
               <li>Tops</li>
-            </a>
-            <a href="/jeans">
+            </div>
+            <div
+              onClick={() => {
+                handleRedirect("jeans");
+              }}
+            >
               <li>Jeans</li>
-            </a>
-            <a href="/dresses">
+            </div>
+            <div
+              onClick={() => {
+                handleRedirect("dresses");
+              }}
+            >
               <li>Dresses</li>
-            </a>
-            <a href="/shoes">
+            </div>
+            <div
+              onClick={() => {
+                handleRedirect("shoes");
+              }}
+            >
               <li>Shoes</li>
-            </a>
+            </div>
           </ul>
         </div>
         <div className="secondLine flex">
