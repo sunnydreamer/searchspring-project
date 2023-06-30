@@ -23,7 +23,7 @@ The Ecommerce Search Page allows users to search for products using the provided
 
 ## Demo
 
-[Coconut Demo](URL)
+[Coconut Demo](https://coconutfashion.netlify.app/)
 
 ## Screenshots
 
