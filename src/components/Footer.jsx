@@ -63,7 +63,7 @@ const Footer = () => {
             </svg>
           </a>
           <a
-            href="https://github.com/sunnydreamer"
+            href="https://github.com/sunnydreamer/searchspring-project"
             className="text-neutral-800 dark:text-neutral-200"
           >
             <svg

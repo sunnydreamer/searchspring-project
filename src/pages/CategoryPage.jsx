@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+
+import { setSearchData } from "../state/searchSlices";
+import { fetchData } from "../state/searchActions";
+
 import PagePagination from "../components/PagePagination";
 import ProductCard from "../components/ProductCard";
-import { useParams } from "react-router-dom";
-import { setSearchData } from "../state/searchSlices";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchData } from "../state/searchActions";
 import NoResultAlert from "../components/NoResultAlert";
 
 const CategoryPage = () => {
@@ -15,19 +17,20 @@ const CategoryPage = () => {
   const dispatch = useDispatch();
   const searchData = useSelector((state) => state.search.searchData);
 
-  const handleSearch = async (category, page) => {
-    const results = await dispatch(fetchData({ searchTerm: category, page }));
+  const handleSearch = async (searchTerm, page) => {
+    const results = await dispatch(fetchData({ searchTerm, page }));
     // console.log(results.payload.results);
     dispatch(setSearchData(results.payload.results));
   };
 
-  const dataList = searchData ? (
-    searchData.map((element, i) => {
-      return <ProductCard key={i} element={element} />;
-    })
-  ) : (
-    <NoResultAlert />
-  );
+  const dataList =
+    searchData && searchData.length ? (
+      searchData.map((element, i) => {
+        return <ProductCard key={i} element={element} />;
+      })
+    ) : (
+      <NoResultAlert />
+    );
 
   useEffect(() => {
     handleSearch(category, page);

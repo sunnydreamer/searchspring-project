@@ -1,13 +1,13 @@
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 import logo from "../images/logoT.png";
 import SearchBar from "./SearchBar";
 import { clearCart } from "../state/cartSlice";
 
-import { useDispatch, useSelector } from "react-redux";
-
 const NavBar = () => {
-  const cartQuantity = useSelector((state) => state.cart.quantity);
   const dispatch = useDispatch();
+
+  const cartQuantity = useSelector((state) => state.cart.quantity);
 
   const handleClearCart = () => {
     const confirmed = window.confirm("Do you want to clear the shopping cart?");
@@ -18,13 +18,13 @@ const NavBar = () => {
 
   return (
     <nav className="flex flex-col items-center justify-center w-full sticky top-0 z-10">
-      {/* logo */}
+      {/* Logo */}
       <div className="flex items-center justify-center flex-shrink-0  bg-gray-100 p-2 w-full">
         <a href="/">
           <img src={logo} alt="" className="w-56" />
         </a>
       </div>
-      {/* Nav Items and Search Box */}
+      {/* Nav Items */}
       <div className="flex items-center justify-center bg-white w-full gap-1 flex-wrap p-5 px-0 ">
         <div className="firstLine">
           <ul className="navItems  items-center justify-between  gap-1 flex">

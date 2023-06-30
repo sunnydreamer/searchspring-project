@@ -1,70 +1,89 @@
-# Getting Started with Create React App
+<br />
+<div align="center">
+  <img src="./src/images/logoT.png" alt="Logo" height="80">
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+  <h1 align="center">Ecommerce Search Page</h1>
 
-## Available Scripts
+</div>
 
-In the project directory, you can run:
+<!-- ABOUT THE PROJECT -->
 
-### `npm start`
+## About The Project
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+The Ecommerce Search Page allows users to search for products using the provided Search API. By entering search queries, users can view relevant product results below the search bar.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Features
 
-### `npm test`
+- <strong>Navigation Bar</strong>: Users can browse different categories of products.
+- <strong>Search Bar</strong>: Users can enter their search queries in the input box and click the search button to trigger the search functionality.
+- <strong>Product Results</strong>: Displayed below the search bar, showing product images, names, and prices.
+- <strong>Pagination</strong>: Next and previous buttons to navigate through the search results. Each page displays 24 results.
+- <strong>Add to Cart Button</strong>: By pressing the plus button on the product info card, users can add a product to the cart. The count of items in the shopping cart increases by one.
+- <strong>Clear Button</strong>: Users can clear the cart with a single click, removing all items from it.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Demo
 
-### `npm run build`
+[Coconut Demo](URL)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Screenshots
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Home Page
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+![Home Page](https://i.imgur.com/mnIeoPI.png)
 
-### `npm run eject`
+### Search Page
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+![Search Page](https://i.imgur.com/GqRpvT8.png)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### No Result Page
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+![No Result](https://i.imgur.com/jkwZjMM.png)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Built With
 
-## Learn More
+- React JS
+- Redux
+- Tailwind CSS
+- Search API
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+<!-- GETTING STARTED -->
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Getting Started
 
-### Code Splitting
+### 1. Clone the repo
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```
+git clone https://github.com/your_username_/Project-Name.git
+```
 
-### Analyzing the Bundle Size
+### 2. Install NPM packages
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```
+npm install
+```
 
-### Making a Progressive Web App
+### 3. Run the React App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+```
+npm start
+```
 
-### Advanced Configuration
+### 4. Run test cases
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+```
+npm test
+```
 
-### Deployment
+<!-- CONTRIBUTING -->
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## Contributing
 
-### `npm run build` fails to minify
+When contributing to this repository, please first discuss the change you wish to
+make via issue, email, or any other method with the owners of this repository
+before making a change.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<!-- LICENSE -->
+
+## License
+
+Distributed under the MIT License. See `LICENSE.txt` for more information.

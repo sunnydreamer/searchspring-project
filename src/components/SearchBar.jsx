@@ -1,9 +1,9 @@
-import React from "react";
-import { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+
 import { fetchData } from "../state/searchActions";
 import { setSearchData } from "../state/searchSlices";
-import { useNavigate } from "react-router-dom";
 
 const SearchBar = () => {
   const [input, setInput] = useState("");

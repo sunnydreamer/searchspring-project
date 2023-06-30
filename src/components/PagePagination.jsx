@@ -1,7 +1,7 @@
 import React from "react";
 
 const PagePagination = ({ page, setPage, searchData }) => {
-  const handleLast = () => {
+  const handlePrevious = () => {
     if (page > 1) {
       setPage(page - 1);
     }
@@ -13,14 +13,14 @@ const PagePagination = ({ page, setPage, searchData }) => {
 
   return (
     <div aria-label="Page navigation example" className="cursor-pointer">
-      <ul class="list-style-none flex justify-center justify-items-center text-center border-2">
+      <ul className="list-style-none flex justify-center justify-items-center text-center border-2">
         {page === 1 ? (
-          <></>
+          <React.Fragment />
         ) : (
           <li
             className="relative block rounded  px-3 py-1.5 text-sm text-neutral-600 transition-all duration-300 hover:bg-neutral-100 dark:text-white dark:hover:bg-neutral-700 dark:hover:text-white 	w-24"
             onClick={() => {
-              handleLast();
+              handlePrevious();
             }}
           >
             Previous
@@ -29,7 +29,6 @@ const PagePagination = ({ page, setPage, searchData }) => {
         {searchData && searchData.length !== 0 ? (
           <li
             className="relative block rounded  px-3 py-1.5 text-sm text-neutral-600 transition-all duration-300 hover:bg-neutral-100 dark:text-white dark:hover:bg-neutral-700 dark:hover:text-white 	w-24	"
-            href="#"
             onClick={() => {
               handleNext();
             }}
@@ -37,7 +36,7 @@ const PagePagination = ({ page, setPage, searchData }) => {
             Next
           </li>
         ) : (
-          <></>
+          <React.Fragment />
         )}
       </ul>
     </div>

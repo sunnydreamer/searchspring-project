@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
-import PagePagination from "../components/PagePagination";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+
 import { fetchData } from "../state/searchActions";
 import { setSearchData } from "../state/searchSlices";
+
+import PagePagination from "../components/PagePagination";
 import ProductCard from "../components/ProductCard";
 import NoResultAlert from "../components/NoResultAlert";
 
